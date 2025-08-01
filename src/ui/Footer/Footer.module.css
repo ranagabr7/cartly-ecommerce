@@ -1,0 +1,12 @@
+.mainUL li {
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #6b7280;
+}
+.mainUL li:hover {
+  transform: translateX(4px);
+  transition: all 0.5s ease;
+  color: var(--main-color);
+}
