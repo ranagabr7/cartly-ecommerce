@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import Home from './Pages/Home/Home';
 import Cart from './Pages/Cart/Cart';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
-import Orders from './Pages/Orders/Orders';
 import Login from './Pages/Login/Login';
 import Brands from './Pages/Brands/Brands';
 import Categories from './Pages/Categories/Categories';
@@ -23,6 +22,8 @@ import ResetPassword from './Pages/ResetPassword/ResetPassword';
 import AuthContextProvider from './Context/AuthContextProvider';
 import ProtectedRoute from './ui/ProtectedRoute/ProtectedRoute';
 import CartContextProvider from './Context/CartContextProvider';
+import Payment from './Pages/Payment/Payment';
+import AllOrder from './Pages/AllOrder/AllOrder';
 
 const App = () => {
   const queryClient = new QueryClient({
@@ -55,20 +56,28 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="/orders"
-              element={
-                <ProtectedRoute>
-                  <Orders />
-                </ProtectedRoute>
-              }
-            />
             <Route path="/product/:id" element={<Product />} />
             <Route
               path="/wishList"
               element={
                 <ProtectedRoute>
                   <WishList />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path={`/payment/:cartId`}
+              element={
+                <ProtectedRoute>
+                  <Payment />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="allorders"
+              element={
+                <ProtectedRoute>
+                  <AllOrder />
                 </ProtectedRoute>
               }
             />

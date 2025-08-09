@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSignup } from '../useSignup';
 import SpinnerMini from '../../../ui/SpinnerMini/SpinnerMini';
 import toast from 'react-hot-toast';
+import { cartContext } from '../../../Context/CartContextProvider';
 export default function SignupForm() {
   const { signup, isSignup } = useSignup();
-
+useContext(cartContext)
   const signupSchema = z
     .object({
       name: z

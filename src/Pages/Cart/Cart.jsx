@@ -3,7 +3,7 @@ import AllCart from '../../Feathures/cart/AllCart/AllCart';
 
 export default function Cart() {
   return (
-    <section className="mx-auto max-w-4xl lg:max-w-5xl">
+    <section className="mx-auto mt-2 w-full px-1 md:px-4">
       <AllCart />
     </section>
   );
