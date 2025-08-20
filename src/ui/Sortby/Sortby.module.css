@@ -1,0 +1,9 @@
+optgroup[label='Name'] {
+  color: #e7000b;
+}
+optgroup[label='Price'] {
+  color: #155dfb;
+}
+option {
+  color: #364153;
+}

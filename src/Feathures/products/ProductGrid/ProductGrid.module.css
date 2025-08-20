@@ -1,0 +1,26 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 9px;
+  }
+  
+  .cards .card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #155dfb;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s linear;
+  }
+  .card:hover::after {
+    transform: scaleX(1);
+  }
+  

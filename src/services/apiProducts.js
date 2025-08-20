@@ -1,10 +1,18 @@
 import axios from 'axios';
+import { PAGE_SIZE } from '../ui/Pagination/Pagination';
 
-export async function getAllProducts() {
+export async function getAllProducts(page = 1, limit = PAGE_SIZE) {
   try {
     const { data } = await axios.get(
       'https://ecommerce.routemisr.com/api/v1/products',
+      {
+        params: {
+          page,
+          limit,
+        },
+      },
     );
+
     return data;
   } catch (error) {
     console.log(error);

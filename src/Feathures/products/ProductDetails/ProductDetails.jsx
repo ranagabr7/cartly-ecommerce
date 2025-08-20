@@ -11,6 +11,7 @@ import ButtonType from '../../../ui/ButtonType/ButtonType';
 import { cartContext } from '../../../Context/CartContextProvider';
 import SpinnerMini from '../../../ui/SpinnerMini/SpinnerMini';
 import toast from 'react-hot-toast';
+import WishlistButton from '../../wishlist/WishlistButton';
 
 export default function ProductDetails() {
   const [isAdding, setisAdding] = useState(false);
@@ -21,6 +22,7 @@ export default function ProductDetails() {
   const moveBack = useMoveBack();
   if (isPending) return <Spinner />;
   const { data } = productItem;
+  // console.log(data);
 
   // handle add to cart
   async function handleAddProduct() {
@@ -43,11 +45,7 @@ export default function ProductDetails() {
         </ButtonType>
       </div>
       <div className="relative">
-        <button className="absolute top-2 right-2">
-          <span className="cursor-pointer text-2xl font-bold hover:text-red-600">
-            <HiOutlineHeart className="hover:fill-red-600" />
-          </span>
-        </button>
+        <WishlistButton productId={data.id} />
         <div className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow-md md:flex-row">
           {/* image */}
           <div className="w-full overflow-hidden md:w-1/4">

@@ -5,10 +5,10 @@ export function useBrands() {
   const {
     isPending,
     data: brands,
-    error,
+   
   } = useQuery({
     queryKey: ['brands'],
     queryFn: getAllBrands,
   });
-  return { isPending, brands, error };
+  return { isPending, brands};
 }

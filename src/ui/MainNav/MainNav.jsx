@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   Button,
   Navbar,
@@ -13,9 +13,11 @@ import AuthIcon from '../AuthIcon/AuthIcon';
 import styles from './MainNav.module.css';
 import { authContext } from '../../Context/AuthContextProvider';
 import { cartContext } from '../../Context/CartContextProvider';
+import { useGetAllWishlist } from '../../Feathures/wishlist/useGetAllWishlist';
 const MainNav = () => {
-  const {numOfItems}=useContext(cartContext)
+  const { numOfItems } = useContext(cartContext);
   const { token, setToken } = useContext(authContext);
+
   return (
     <>
       <nav className="fixed start-0 top-0 z-20 w-full bg-white">
@@ -100,8 +102,8 @@ const MainNav = () => {
                       className={`${styles.active} block rounded-sm px-3 py-2 text-gray-700 md:bg-transparent md:p-0`}
                     >
                       Cart
-                      <div className="absolute -top-0  md:-end-3 md:-top-2 inline-flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white ">
-                       {numOfItems}
+                      <div className="absolute -top-0 inline-flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white md:-end-3 md:-top-2">
+                        {numOfItems}
                       </div>
                     </NavLink>
                   </li>
